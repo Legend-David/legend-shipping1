@@ -1,0 +1,164 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow: auto; /* Allow horizontal scrolling */
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sub-title {
+    font-size: 14px;
+    color: #666;
+    margin-left: 5px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex: 1; /* Makes the links occupy the center space */
+    gap: 20px; /* Increased spacing between links */
+}
+
+nav a {
+    text-decoration: none;
+    color: #007aff;
+    font-size: 16px;
+    margin: 0; /* Remove margin to prevent wrapping */
+    padding: 10px; /* Add padding for more clickable area */
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding-top: 100px;
+    line-height: 1.5;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007aff;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: #f9f9f9;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer p {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons li {
+    margin: 0 10px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #007aff;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #0056b3;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    nav {
+        padding: 10px 15px; /* Adjust padding on smaller screens */
+    }
+
+    .logo {
+        font-size: 18px; /* Slightly reduce logo size */
+    }
+
+    .sub-title {
+        font-size: 12px; /* Reduce subtitle size */
+    }
+
+    nav a {
+        font-size: 14px; /* Reduce font size of nav links */
+    }
+
+    .nav-links {
+        gap: 5px; /* Decrease spacing between links */
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 10px 10px; /* Further reduce padding */
+    }
+
+    nav a {
+        font-size: 12px; /* Further reduce font size of nav links */
+    }
+
+    .nav-links {
+        gap: 2px; /* Further decrease spacing between links */
+    }
+}
