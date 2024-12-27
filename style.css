@@ -5,7 +5,15 @@ body {
     background-color: #f9f9f9;
     color: #333;
 }
-
+h2{
+    h2 {
+        padding: auto;
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+}
 /* Navbar */
 nav {
     display: flex;
