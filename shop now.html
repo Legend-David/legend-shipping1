@@ -1,0 +1,109 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Drop Shop
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   .font-roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="font-roboto bg-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+   <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+    <a class="text-2xl font-bold text-gray-800" href="#">
+     Drop Shop
+    </a>
+    <div class="hidden md:flex space-x-4">
+     <a class="text-gray-600 hover:text-gray-800" href="Legend David.html">
+      Home
+     </a>
+     <a class="text-gray-600 hover:text-gray-800" href="shop now.html">
+      Shop
+     </a>
+     <a class="text-gray-600 hover:text-gray-800" href="#">
+      About
+     </a>
+     <a class="text-gray-600 hover:text-gray-800" href="#">
+      Contact
+     </a>
+    </div>
+    <div class="flex items-center space-x-4">
+     <a class="text-gray-600 hover:text-gray-800 relative" href="cart.html">
+      <i class="fas fa-shopping-cart">
+      </i>
+      <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center" id="cartCount">
+       0
+      </span>
+     </a>
+     <a class="text-gray-600 hover:text-gray-800" href="#">
+      <i class="fas fa-user">
+      </i>
+     </a>
+    </div>
+   </div>
+  </nav>
+  <!-- Products Section -->
+  <section class="bg-gray-100 py-12">
+    <div class="container mx-auto px-4">
+     <h2 class="text-3xl font-bold text-gray-800 mb-8">
+      All Products
+     </h2>
+     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-white p-4 rounded-lg shadow-md">
+       <img alt="Product 1: A sleek and modern gadget" class="w-full h-auto" height="300" src="https://storage.googleapis.com/a1aa/image/Wz3Z2Pysod5KI1nyV0TxfVBzNJCH7VCouJNoTnIbmk3SYAfTA.jpg" width="300"/>
+       <h3 class="text-xl font-bold text-gray-800 mt-4">
+        Product 1
+       </h3>
+       <p class="text-gray-600 mt-2">
+        $29.99
+       </p>
+       <button class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 inline-block hover:bg-blue-600" onclick="addToCart()">
+        Add to Cart
+       </button>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow-md">
+       <img alt="Product 2: A stylish and comfortable piece of clothing" class="w-full h-auto" height="300" src="https://storage.googleapis.com/a1aa/image/XMLWUNbG2DpBExmrZKWyKu71PI8Po8rHHnTrmMDrLfzUYAfTA.jpg" width="300"/>
+       <h3 class="text-xl font-bold text-gray-800 mt-4">
+        Product 2
+       </h3>
+       <p class="text-gray-600 mt-2">
+        $49.99
+       </p>
+       <button class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 inline-block hover:bg-blue-600" onclick="addToCart()">
+        Add to Cart
+       </button>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow-md">
+       <img alt="Product 3: A high-quality and durable accessory" class="w-full h-auto" height="300" src="https://storage.googleapis.com/a1aa/image/qy9e4jbHMjw4C6ksZKzqcf5EqgIcFLROnvz0N2z2ffXdCD4PB.jpg" width="300"/>
+       <h3 class="text-xl font-bold text-gray-800 mt-4">
+        Product 3
+       </h3>
+       <p class="text-gray-600 mt-2">
+        $19.99
+       </p>
+       <button class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 inline-block hover:bg-blue-600" onclick="addToCart()">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+   </section>
+   <script>
+    let cartCount = 0;
+ 
+         function addToCart() {
+             cartCount++;
+             document.getElementById('cartCount').innerText = cartCount;
+         }
+   </script>
+ </body>
+</html>

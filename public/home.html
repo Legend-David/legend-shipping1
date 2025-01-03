@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="Legend Drop Shop - A place where everyone can be a legend with feel-good products.">
+    <title>Legend Drop Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            Legend<span class="sub-title">Drop Shop  <button id="logoutBtn">Logout</button></span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="home.html">Drop in</a>
+            <a href="dropshop.html">Drop shop</a>
+            <a href="contact.html">Contact</a>
+            <a href="#about">About</a>
+                <a class="text-gray-600 hover:text-gray-800 relative" href="cart.html">
+                 <i class="fas fa-shopping-cart">
+                 </i>
+                 <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center" id="cartCount">
+                  0
+                 </span>
+                </a>
+                <a class="text-gray-600 hover:text-gray-800" href="#">
+                 <i class="fas fa-user">
+                 </i>
+                </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome Legends</h1>
+        <p>A place where Everyone can be a Legend with feel good products </p>
+        <a href="dropshop.html" class="button">Shop Now</a>
+        
+    </div>
+
+</body>
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2022 Legend Drop Shop. All rights reserved.</p>
+        <ul class="social-icons">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="legenddavid26@gmail.com"><i class="fas fa-envelope"></i></a></li> <!-- Added Email Icon -->
+        </ul>
+    </div>
+</footer>
+<script>
+    // Function to retrieve cart items from localStorage
+    function loadCartItems() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartCountElement = document.getElementById('cartCount');
+
+        // Update cart count
+        cartCountElement.innerText = cartItems.length;
+
+        // Clear existing items
+        cartItemsContainer.innerHTML = '';
+
+        // Populate cart items
+        cartItems.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'flex items-center justify-between bg-gray-50 p-4 rounded-md shadow-sm';
+            itemElement.innerHTML = `
+                <div class="flex items-center">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-md">
+                    <div class="ml-4">
+                        <h3 class="text-lg font-bold">${item.name}</h3>
+                        <p class="text-gray-600">$${item.price}</p>
+                    </div>
+                </div>
+                <button class="text-red-500 hover:text-red-700" onclick="removeFromCart(${index})">
+                    <i class="fas fa-trash"></i>
+                </button>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+        });
+    }
+
+    // Function to remove an item from the cart
+    function removeFromCart(index) {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.splice(index, 1);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        loadCartItems();
+    }
+
+    // Load cart items on page load
+    window.onload = loadCartItems;
+
+    function addToCart(name, price, image) {
+const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+cartItems.push({ name, price, image });
+localStorage.setItem('cartItems', JSON.stringify(cartItems));
+document.getElementById('cartCount').innerText = cartItems.length;
+}
+
+        // Check auth on load
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/index.html';
+        }
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('token');
+            window.location.href = '/index.html';
+        });
+</script>
+
+</html>
